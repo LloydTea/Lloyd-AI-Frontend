@@ -10,7 +10,7 @@ interface MyResponseHeaders {
         message: string;
     }
  }
-const apiUrl = 'http://localhost:5173/';
+const apiUrl = 'https://ai.lloydtea.pro:5450';
 
 
 function Chatbot (){
