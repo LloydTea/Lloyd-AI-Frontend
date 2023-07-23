@@ -1,0 +1,15 @@
+
+//Overwrite Bootstrap Colors
+$primary: #90fcdc;
+$secondary: #0d192e;
+$light: #ccd6f6;
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300&display=swap');
+
+// import bootstrap
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+// import bootstrap-icon
+@import '../node_modules/bootstrap-icons/font/bootstrap-icons.css';
+
+@import 'index.css';
