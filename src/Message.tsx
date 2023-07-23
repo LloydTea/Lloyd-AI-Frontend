@@ -28,7 +28,6 @@ function Chatbot (){
         setSendersMessage({ message: event.currentTarget.value });
         displayMesssage(sendersMessage.message, false);
         sendToAI(sendersMessage.message)
-        console.log(sendersMessage)
         setSendersMessage({ message: "" });
     }
   }
@@ -39,6 +38,15 @@ function Chatbot (){
       parentElement.scrollTop = parentElement.scrollHeight;
     }
   }, [childElements]);
+
+  function buttonClicked(){
+    if(sendersMessage.message !== ""){
+        sendToAI(sendersMessage.message)
+    console.log(sendersMessage)
+    displayMesssage(sendersMessage.message, false);
+    setSendersMessage({ message: "" });
+    }
+  }
   function sendToAI(message: string){
     const messageText: messageText = {
         message: message,
@@ -93,7 +101,7 @@ function Chatbot (){
                                 <FloatingLabel controlId="message" label="Type your message here...">
                                     <Form.Control as="textarea"  name="message" value={sendersMessage.message} onChange={handleInputChange} onKeyDown={handleKeyPress}></Form.Control>
                                 </FloatingLabel>
-                                <Button variant="primary"> Send <i className="bi bi-send"></i></Button>
+                                <Button variant="primary" onClick={buttonClicked}> Send <i className="bi bi-send"></i></Button>
                             </InputGroup>
                         </div>
                     </Col>
