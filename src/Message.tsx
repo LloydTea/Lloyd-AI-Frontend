@@ -17,18 +17,28 @@ function Chatbot (){
 
   const [sendersMessage, setSendersMessage] = React.useState<messageText>({ message: ''});
   const [childElements, setChildElements] = useState<JSX.Element[]>([]);
+  const [textareaHeight, setTextareaHeight] = useState('40px'); 
   const parentRef = useRef<HTMLDivElement>(null);
 
   function handleInputChange(event: React.ChangeEvent<HTMLTextAreaElement>) {
     setSendersMessage({ message: event.target.value });
+    const textarea = event.target;
+    textarea.style.height = '40px';
+    textarea.style.height = `${textarea.scrollHeight}px`;
   }
+
 
   function handleKeyPress(event:  React.KeyboardEvent<HTMLTextAreaElement>){
     if (event.key === 'Enter') {
-        setSendersMessage({ message: event.currentTarget.value });
-        displayMesssage(sendersMessage.message, false);
-        sendToAI(sendersMessage.message)
+      event.preventDefault(); 
+        if (sendersMessage.message !== "") {
+          setSendersMessage({ message: event.currentTarget.value });
+          displayMesssage(sendersMessage.message, false);
+          sendToAI(sendersMessage.message)
+        }
+
         setSendersMessage({ message: "" });
+        setTextareaHeight('40px'); 
     }
   }
   useEffect(() => {
@@ -42,11 +52,13 @@ function Chatbot (){
   function buttonClicked(){
     if(sendersMessage.message !== ""){
         sendToAI(sendersMessage.message)
-    console.log(sendersMessage)
-    displayMesssage(sendersMessage.message, false);
-    setSendersMessage({ message: "" });
+        console.log(sendersMessage)
+        displayMesssage(sendersMessage.message, false);
+        setSendersMessage({ message: "" });
+        setTextareaHeight('40px'); 
     }
   }
+  
   function sendToAI(message: string){
     const messageText: messageText = {
         message: message,
@@ -97,12 +109,14 @@ function Chatbot (){
                             {childElements.map((childElement) => childElement)}
                         </div>
                         <div className="position-absolute bottom-0 w-100 bg-secondary bg-opacity-75">
-                            <InputGroup className="p-3 border-top border-light border-opacity-50">
-                                <FloatingLabel controlId="message" label="Type your message here...">
-                                    <Form.Control as="textarea"  name="message" value={sendersMessage.message} onChange={handleInputChange} onKeyDown={handleKeyPress}></Form.Control>
-                                </FloatingLabel>
-                                <Button variant="primary" onClick={buttonClicked}> Send <i className="bi bi-send"></i></Button>
-                            </InputGroup>
+                            <div className="p-3 border-top border-light border-opacity-50">
+                              <div className='d-flex p-2 bg-white rounded'>
+                                <textarea  className='text_input flex-fill border-0' placeholder='Type your message here...' rows={1} name="message" value={sendersMessage.message} style={{ height: textareaHeight }} onChange={handleInputChange} onKeyDown={handleKeyPress}></textarea>
+                                <div className='d-flex align-items-end'>
+                                  <Button variant="primary" onClick={buttonClicked}><i className="bi bi-send"></i></Button>
+                                </div>
+                              </div>
+                            </div>
                         </div>
                     </Col>
                 </Row>

@@ -28,8 +28,15 @@
   min-height: 100%;
 }
 #chatmessages{
-  padding-bottom: 105px !important;
+  padding-bottom: 155px !important;
 }
 .chatbox{
   flex:1;
+}
+
+.text_input, .text_input:focus{
+  resize: none; 
+  height: auto;
+  outline: none;
+  max-height: 150px;
 }
