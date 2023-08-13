@@ -99,7 +99,7 @@ function Chatbot (){
             <Container>
                 <Row className="justify-content-center">
                     <Col lg="8" className="bg-secondary p-0 vh-100 position-relative overflow-hidden">
-                        <div id="chatmessages" className="h-100 p-2 border border-light  border-opacity-50 rounded-bottom-0 m-3 rounded  overflow-scroll overflow-x-hidden"  ref={parentRef}>
+                        <div id="chatmessages" className="h-100 p-2   border-opacity-50 rounded-bottom-0 m-3 rounded  overflow-scroll overflow-x-hidden"  ref={parentRef}>
                             <Row className="justify-content-start">
                                 <Col md="9" className="position-relative">
                                     <i className="bi bi-caret-left-fill text-primary AI_chatLeftIndication_Icon"></i>
@@ -109,7 +109,7 @@ function Chatbot (){
                             {childElements.map((childElement) => childElement)}
                         </div>
                         <div className="position-absolute bottom-0 w-100 bg-secondary bg-opacity-75">
-                            <div className="p-3 border-top border-light border-opacity-50">
+                            <div className="p-3 border rounded border-light border-opacity-50">
                               <div className='d-flex p-2 bg-white rounded'>
                                 <textarea  className='text_input flex-fill border-0' placeholder='Type your message here...' rows={1} name="message" value={sendersMessage.message} style={{ height: textareaHeight }} onChange={handleInputChange} onKeyDown={handleKeyPress}></textarea>
                                 <div className='d-flex align-items-end'>
