@@ -36,9 +36,9 @@ function Chatbot (){
           displayMesssage(sendersMessage.message, false);
           sendToAI(sendersMessage.message)
         }
-
         setSendersMessage({ message: "" });
-        setTextareaHeight('40px'); 
+        setTextareaHeight('40px');
+        console.log(textareaHeight)
     }
   }
   useEffect(() => {
@@ -54,9 +54,9 @@ function Chatbot (){
         sendToAI(sendersMessage.message)
         console.log(sendersMessage)
         displayMesssage(sendersMessage.message, false);
-        setSendersMessage({ message: "" });
-        setTextareaHeight('40px'); 
     }
+    setSendersMessage({ message: "" });
+    setTextareaHeight('40px'); 
   }
   
   function sendToAI(message: string){
@@ -98,7 +98,7 @@ function Chatbot (){
         <>
             <Container>
                 <Row className="justify-content-center">
-                    <Col lg="8" className="bg-secondary p-0 vh-100 position-relative overflow-hidden">
+                    <Col lg="10" className="p-0 vh-100 position-relative overflow-hidden">
                         <div id="chatmessages" className="h-100 p-2   border-opacity-50 rounded-bottom-0 m-3 rounded  overflow-scroll overflow-x-hidden"  ref={parentRef}>
                             <Row className="justify-content-start">
                                 <Col md="9" className="position-relative">
@@ -108,8 +108,10 @@ function Chatbot (){
                             </Row>
                             {childElements.map((childElement) => childElement)}
                         </div>
-                        <div className="position-absolute bottom-0 w-100 bg-secondary bg-opacity-75">
-                            <div className="p-3 border rounded border-light border-opacity-50">
+                    </Col>
+                    <Col lg="7" className="p-0  position-relative">
+                        <div className="position-absolute pb-5 bottom-0 w-100 bg-secondary">
+                            <div className="p-3 shadow-lg p-3 border rounded border-light border-opacity-50">
                               <div className='d-flex p-2 bg-white rounded'>
                                 <textarea  className='text_input flex-fill border-0' placeholder='Type your message here...' rows={1} name="message" value={sendersMessage.message} style={{ height: textareaHeight }} onChange={handleInputChange} onKeyDown={handleKeyPress}></textarea>
                                 <div className='d-flex align-items-end'>
