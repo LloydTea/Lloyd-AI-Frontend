@@ -109,9 +109,9 @@ function Chatbot (){
                             {childElements.map((childElement) => childElement)}
                         </div>
                     </Col>
-                    <Col lg="7" className="p-0  position-relative">
-                        <div className="position-absolute pb-5 bottom-0 w-100 bg-secondary">
-                            <div className="p-3 shadow-lg p-3 border rounded border-light border-opacity-50">
+                    <Col lg="7" className="p-0 position-relative">
+                        <div className="position-absolute pb-5 bottom-0 w-100">
+                            <div className="p-3 shadow-lg p-3 border bg-secondary rounded border-light border-opacity-50">
                               <div className='d-flex p-2 bg-white rounded'>
                                 <textarea  className='text_input flex-fill border-0' placeholder='Type your message here...' rows={1} name="message" value={sendersMessage.message} style={{ height: textareaHeight }} onChange={handleInputChange} onKeyDown={handleKeyPress}></textarea>
                                 <div className='d-flex align-items-end'>
