@@ -2,6 +2,7 @@ import React from 'react';
 import axios,{ AxiosResponse } from "axios";
 import { useState, useEffect, useRef } from 'react'
 import { Container, Button, Row, Col} from "react-bootstrap";
+import apiInstance from './api/api';
 interface messageText {
     message: string;
 }
@@ -10,7 +11,6 @@ interface MyResponseHeaders {
         message: string;
     }
  }
-const apiUrl = 'https://ai.lloydtea.pro:5450';
 
 
 function Chatbot (){
@@ -63,23 +63,16 @@ function Chatbot (){
     const messageText: messageText = {
         message: message,
       };
-      axios.post(`${apiUrl}/send`, messageText, {
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  })
+      apiInstance.post("/send", messageText)
   .then((response: AxiosResponse<messageText, MyResponseHeaders>) => {
-    // Check if the response contains data and message
-    if (response.data && response.data.message) {
-      const messageFromAi:string = response.data.message;
-      displayMesssage(messageFromAi, true);
-    } else {
-      console.error('Invalid response format:', response.data);
-    }
+    const messageFromAi:string = response?.data?.message;
+    displayMesssage(messageFromAi, true);
   })
   .catch((error : messageText) => {
     console.error('Error sending POST request:', error.message);
+    displayMesssage(`Lloyd's AI is Temporary Unavailable.`, true);
   });
+
   }
 
   function displayMesssage(message: string, sender: boolean){
@@ -110,7 +103,7 @@ function Chatbot (){
                         </div>
                     </Col>
                     <Col lg="7" className="p-0 position-relative">
-                        <div className="position-absolute pb-5 bottom-0 w-100">
+                        <div className="position-absolute pb-md-5 bottom-0 w-100">
                             <div className="p-3 shadow-lg p-3 border bg-secondary rounded border-light border-opacity-50">
                               <div className='d-flex p-2 bg-white rounded'>
                                 <textarea  className='text_input flex-fill border-0' placeholder='Type your message here...' rows={1} name="message" value={sendersMessage.message} style={{ height: textareaHeight }} onChange={handleInputChange} onKeyDown={handleKeyPress}></textarea>
