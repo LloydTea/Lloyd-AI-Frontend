@@ -40,3 +40,24 @@
   outline: none;
   max-height: 210px;
 }
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(13 25 46);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #90fcdc;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #90fcdc;
+}
