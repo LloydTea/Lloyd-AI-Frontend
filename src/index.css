@@ -51,6 +51,15 @@
   background: rgb(13 25 46);
 }
 
+.vh-custom {
+  height: 100vh !important;
+}
+@media screen and (max-width: 768px) {
+  .vh-custom {
+    height: 85vh !important;
+  }
+}
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #90fcdc;

@@ -91,8 +91,8 @@ function Chatbot (){
         <>
             <Container>
                 <Row className="justify-content-center">
-                    <Col lg="10" className="p-0 vh-100 position-relative overflow-hidden">
-                        <div id="chatmessages" className="h-100 p-2   border-opacity-50 rounded-bottom-0 m-3 rounded  overflow-scroll overflow-x-hidden"  ref={parentRef}>
+                    <Col lg="10" className="p-0 vh-custom position-relative overflow-hidden">
+                        <div id="chatmessages" className="h-100 p-2 mx-3  overflow-scroll overflow-x-hidden"  ref={parentRef}>
                             <Row className="justify-content-start">
                                 <Col md="9" className="position-relative">
                                     <i className="bi bi-caret-left-fill text-primary AI_chatLeftIndication_Icon"></i>
