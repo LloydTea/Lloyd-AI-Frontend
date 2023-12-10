@@ -4,13 +4,14 @@
 
         - React Typescript
         - Bootstrap
+        - CICD (Git Runner)
 
 - ### Project Information
 
   Functions Of This Process
 
         - To provide answers to any question asked about my persoanl career, with the use of chatGBT connected through a node.js API
-        - Link To [Node.js Repo](https://github.com/LloydTea/Lloyd-AI-backend)
+        - Link To: [Node.js Repo](https://github.com/LloydTea/Lloyd-AI-backend)
 
   -[Access Link](https://ai.lloydtea.pro/)
 
