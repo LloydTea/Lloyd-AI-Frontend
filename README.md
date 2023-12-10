@@ -12,8 +12,10 @@
         - To provide answers to any question asked about my persoanl career, with the use of chatGBT connected through a node.js API
         - Link To [Node.js Repo](https://github.com/LloydTea/Lloyd-AI-backend)
 
+  -[Access Link](https://ai.lloydtea.pro/)
+
 - ### Screenshot
-  ![Timer Screenshot](https://github.com/LloydTea/Calculator/blob/main/Calculator.png)
+  ![LloydAI Screenshot](https://github.com/LloydTea/Lloyd-AI-Frontend/blob/development/LloydAI.png)
 
 ## Authors
 
